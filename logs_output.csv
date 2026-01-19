@@ -1,0 +1,23 @@
+line_no,date,level,message
+0,2026-01-19,INFO,User login success
+1,2026-01-19,ERROR,Database connection failed
+2,2026-01-19,WARNING,Disk usage high
+3,wrong,corrupted,line
+4,2026-01-19,INFO,Page loaded
+5,2026-01-19,ERROR,API timeout
+line_no,date,level,message
+0,2026-01-19,INFO,Server started successfully
+1,2026-01-19,INFO,User login success
+2,2026-01-19,WARNING,CPU usage high
+3,2026-01-19,ERROR,Database connection failed
+4,2026-01-19,INFO,Page /home loaded
+5,2026-01-19,ERROR,API timeout while fetching data
+6,2026-01-19,WARNING,Disk space low
+7,wrong,corrupted,line
+8,2026-01-19,INFO,User logout success
+9,2026-01-19,ERROR,Payment gateway not responding
+10,2026-01-19,INFO,File uploaded successfully
+11,2026-01-19,ERROR,Database connection failed
+12,2026-01-19,WARNING,Memory usage high
+13,2026-01-19,INFO,Page /contact loaded
+15,2026-01-19,ERROR,API timeout while fetching data

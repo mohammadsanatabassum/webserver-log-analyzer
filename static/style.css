@@ -1,0 +1,49 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+button{
+    padding: 7px 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #999;
+}
+
+.cards{
+    display:flex;
+    gap:15px;
+    margin: 10px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.card{
+    padding: 15px;
+    border-radius: 10px;
+    background: #f2f2f2;
+    min-width: 200px;
+}
+
+.chart-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.chart-box{
+    padding: 15px;
+    border-radius: 12px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+}
+
+table{
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th{
+    background: #f2f2f2;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Server Log Analyzer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h1>📊 Web Server Log Analyzer</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="logfile" accept=".log,.txt" required>
+        <button type="submit">Upload & Analyze</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if dashboard_data %}
+        <h2>✅ Summary</h2>
+        <div class="cards">
+            <div class="card">Total Requests: <b>{{ dashboard_data.summary.total_requests }}</b></div>
+            <div class="card">Total Bytes: <b>{{ dashboard_data.summary.total_bytes }}</b></div>
+            <div class="card">Invalid Lines: <b>{{ dashboard_data.summary.invalid_count }}</b></div>
+        </div>
+
+        <h2>📌 Status Code Charts</h2>
+
+        <div class="chart-grid">
+            <div class="chart-box">
+                <h3>Bar Chart</h3>
+                <canvas id="statusBar"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3>Pie Chart</h3>
+                <canvas id="statusPie"></canvas>
+            </div>
+        </div>
+
+        <h2>🔥 Top Endpoints Chart</h2>
+        <div class="chart-box">
+            <canvas id="endpointChart"></canvas>
+        </div>
+
+        <h2>🌍 Top IPs Chart</h2>
+        <div class="chart-box">
+            <canvas id="ipChart"></canvas>
+        </div>
+
+        <h2>⚠️ Invalid Lines Preview</h2>
+        <table border="1" cellpadding="6">
+            <tr>
+                <th>Line No</th>
+                <th>Error</th>
+                <th>Line Preview</th>
+            </tr>
+            {% for item in dashboard_data.invalid_lines %}
+            <tr>
+                <td>{{ item.line_no }}</td>
+                <td>{{ item.error }}</td>
+                <td>{{ item.preview }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <script>
+            // ----------------------------
+            // Status code chart data
+            // ----------------------------
+            const statusLabels = {{ dashboard_data.status_labels | tojson }};
+            const statusValues = {{ dashboard_data.status_values | tojson }};
+
+            // Bar chart - Status
+            new Chart(document.getElementById("statusBar"), {
+                type: "bar",
+                data: {
+                    labels: statusLabels,
+                    datasets: [{
+                        label: "Status Code Counts",
+                        data: statusValues
+                    }]
+                }
+            });
+
+            // Pie chart - Status
+            new Chart(document.getElementById("statusPie"), {
+                type: "pie",
+                data: {
+                    labels: statusLabels,
+                    datasets: [{
+                        label: "Status Codes",
+                        data: statusValues
+                    }]
+                }
+            });
+
+            // ----------------------------
+            // Top endpoints chart
+            // ----------------------------
+            const endpointLabels = {{ dashboard_data.endpoint_labels | tojson }};
+            const endpointValues = {{ dashboard_data.endpoint_values | tojson }};
+
+            new Chart(document.getElementById("endpointChart"), {
+                type: "bar",
+                data: {
+                    labels: endpointLabels,
+                    datasets: [{
+                        label: "Top Endpoints",
+                        data: endpointValues
+                    }]
+                },
+                options: {
+                    indexAxis: 'y'
+                }
+            });
+
+            // ----------------------------
+            // Top IPs chart
+            // ----------------------------
+            const ipLabels = {{ dashboard_data.ip_labels | tojson }};
+            const ipValues = {{ dashboard_data.ip_values | tojson }};
+
+            new Chart(document.getElementById("ipChart"), {
+                type: "bar",
+                data: {
+                    labels: ipLabels,
+                    datasets: [{
+                        label: "Top IPs",
+                        data: ipValues
+                    }]
+                },
+                options: {
+                    indexAxis: 'y'
+                }
+            });
+        </script>
+    {% endif %}
+</body>
+</html>

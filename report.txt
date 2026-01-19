@@ -1,0 +1,16 @@
+✅ LOG ANALYSIS REPORT
+===================================
+
+Log Level Counts:
+INFO: 6
+WARNING: 3
+ERROR: 5
+corrupted: 1
+
+Corrupted Lines Count: 1
+
+Top 10 ERROR Messages:
+-----------------------------------
+2 times -> Database connection failed
+2 times -> API timeout while fetching data
+1 times -> Payment gateway not responding
