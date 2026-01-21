@@ -118,6 +118,12 @@ Regular Expressions (Regex)
 JSON + CSV report generation
 
 <img width="473" height="434" alt="image" src="https://github.com/user-attachments/assets/0fc95c1a-df31-4c3f-beed-22745df63866" />
+<img width="898" height="425" alt="image" src="https://github.com/user-attachments/assets/6a874d33-54c0-4a3a-9643-2ae183fc9995" />
+
+<img width="425" height="413" alt="image" src="https://github.com/user-attachments/assets/b10cd120-db00-497a-a499-32850a8f1a64" />
+
+
+<img width="796" height="140" alt="image" src="https://github.com/user-attachments/assets/d550ecc5-8429-4754-8a84-fc581ee07d53" />
 
 
 
