@@ -117,6 +117,7 @@ Regular Expressions (Regex)
 
 JSON + CSV report generation
 
+<img width="473" height="434" alt="image" src="https://github.com/user-attachments/assets/0fc95c1a-df31-4c3f-beed-22745df63866" />
 
 
 
